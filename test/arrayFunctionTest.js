@@ -51,16 +51,19 @@ describe('filter', function() {
 describe('reduce', function() {
   describe('sum', function() {
     it('should return sum of 2 numbers', function() {
-      assert.deepEqual(reduce([2,3],1,sum),6);
+      assert.deepEqual(reduce([2,3],sum,1),6);
     })
     it('should return sum of multiple numbers in array', function() {
-      assert.deepEqual(reduce([1,2,3,4,5,6],1,sum),22);
+      assert.deepEqual(reduce([1,2,3,4,5,6],sum,1),22);
     })
     it('should return sum of 2 numbers with no initial value', function() {
-      assert.deepEqual(reduce([1,2],0,sum),3);
+      assert.deepEqual(reduce([1,2],sum,0),3);
     })
     it('should return sum of multiple numbers', function() {
-      assert.deepEqual(reduce([1,2,3,4,5,6],0,sum),21);
+      assert.deepEqual(reduce([1,2,3,4,5,6],sum,0),21);
+    })
+    it('should return when initial value is undefined', function() {
+      assert.deepEqual(reduce([1,2,3],sum),6);
     })
   })
 })

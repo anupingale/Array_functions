@@ -17,8 +17,8 @@ const filter = function(array,functionName) {
   return filteredElement;
 }
 
-const reduce = function(array,initialValue,functionName) {
-  let result = initialValue;
+const reduce = function(array,functionName,initialValue) {
+  let result = initialValue || 0;
   for(let index = 0; index < array.length; index++) {
     result = functionName(result,array[index]);
   }
