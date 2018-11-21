@@ -19,7 +19,7 @@ const filter = function(array,predicate) {
 const reduce = function(array,functionName,initialValue) {
   let result = initialValue;
   let startingIndex = 0;
-  if(initialValue == undefined) {
+  if(!initialValue) {
     result = array[0];
     startingIndex = 1;
   }
