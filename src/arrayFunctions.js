@@ -17,4 +17,12 @@ const filter = function(array,functionName) {
   return filteredElement;
 }
 
-module.exports = {map,filter};
+const reduce = function(array,initialValue,functionName) {
+  let result = initialValue;
+  for(let index = 0; index < array.length; index++) {
+    result = functionName(result,array[index]);
+  }
+  return result;
+}
+
+module.exports = {map,filter,reduce};
