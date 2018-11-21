@@ -1,7 +1,7 @@
-const map = function(array,functionName) {
+const map = function(array,mapper) {
   let mappedElements = [];
-  for(let index = 0; index < array.length; index++) {
-    mappedElements.push(functionName(array[index]));
+  for(element of array) {
+    mappedElements.push(mapper(element));
   }
   return mappedElements;
 }
