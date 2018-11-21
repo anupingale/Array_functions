@@ -46,9 +46,11 @@ describe('filter', function() {
   it('should return empty array when input is empty array', function() {
     assert.deepEqual(filter(checkAge,[]),[]);
   });
+
   it('should return same array when function return truthy values for all array elements', function() {
     assert.deepEqual(filter(truthy,[1,2,3,4,5]),[1,2,3,4,5]);
   });
+
   it('should return empty array when function returns falsy values for all array elements', function(){
     assert.deepEqual(filter(falsy,[1,2,3,4]),[]);
   });
@@ -60,10 +62,12 @@ describe('reduce', function() {
     assert.deepEqual(reduce(sum,[2],2),4);
     assert.deepEqual(reduce(sum,[1,2,3],1),7);
   });
+
   it('should return empty array when initial value is not provided', function() {
     assert.deepEqual(reduce(sum,[1]),1);
     assert.deepEqual(reduce(sum,[1,2,3]),6);
   });
+
   it('should return undefined when initial value and array elements both are not provided', function() {
     assert.deepEqual(reduce(sum,[]),undefined);
   });
