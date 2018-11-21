@@ -18,13 +18,13 @@ const filter = function(array,predicate) {
 
 const reduce = function(array,reducer,initialValue) {
   let result = initialValue;
-  let startingIndex = 0;
+  let index = 0;
   if(initialValue == undefined) {
     result = array[0];
-    startingIndex = 1;
+    index = 1;
   }
-  for(let index = startingIndex; index < array.length; index++) {
-    result = reducer(result,array[index]);
+  while(index < array.length) {
+    result = reducer(result,array[index++]);
   }
   return result;
 }
