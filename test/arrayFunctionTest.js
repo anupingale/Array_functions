@@ -30,7 +30,13 @@ describe('map' , function() {
   it('should return empty array when input is empty array', function() {
     assert.deepEqual(map(increment,[]),[]);
   });
+
   it('should preserve the length of array', function() {
+    const numbers = [1,2];
+    assert.equal(map(increment, numbers).length, numbers.length);
+  });
+
+  it('should transform result as per mapper function', function() {
     assert.deepEqual(map(decrement,[0]),[-1]);
     assert.deepEqual(map(increment,[1,2]),[2,3]);
   });
@@ -49,25 +55,23 @@ describe('filter', function() {
 });
 
 describe('reduce', function() {
-  describe('sum', function() {
-    it('should return sum of 2 numbers', function() {
-      assert.deepEqual(reduce([2,3],sum,1),6);
-    })
-    it('should return sum of multiple numbers in array', function() {
-      assert.deepEqual(reduce([1,2,3,4,5,6],sum,1),22);
-    })
-    it('should return sum of 2 numbers with no initial value', function() {
-      assert.deepEqual(reduce([1,2],sum,0),3);
-    })
-    it('should return sum of multiple numbers', function() {
-      assert.deepEqual(reduce([1,2,3,4,5,6],sum,0),21);
-    })
-    it('should return when initial value is undefined', function() {
-      assert.deepEqual(reduce([1,2,3],sum),6);
-    })
-    it('should concat strings', function() {
-      assert.deepEqual(reduce(["a","b","c"],sum,""),"abc")
-    })
+  it('should return sum of 2 numbers', function() {
+    assert.deepEqual(reduce([2,3],sum,1),6);
+  })
+  it('should return sum of multiple numbers in array', function() {
+    assert.deepEqual(reduce([1,2,3,4,5,6],sum,1),22);
+  })
+  it('should return sum of 2 numbers with no initial value', function() {
+    assert.deepEqual(reduce([1,2],sum,0),3);
+  })
+  it('should return sum of multiple numbers', function() {
+    assert.deepEqual(reduce([1,2,3,4,5,6],sum,0),21);
+  })
+  it('should return when initial value is undefined', function() {
+    assert.deepEqual(reduce([1,2,3],sum),6);
+  })
+  it('should concat strings', function() {
+    assert.deepEqual(reduce(["a","b","c"],sum,""),"abc")
   })
 })
 
