@@ -6,12 +6,11 @@ const map = function(array,mapper) {
   return mappedElements;
 }
 
-const filter = function(array,functionName) {
+const filter = function(array,predicate) {
   let filteredElement = [];
-  for(let index = 0; index < array.length; index++) {
-    let element = functionName(array[index]);
-    if(element){
-      filteredElement.push(array[index]);
+  for(element of array) {
+    if(predicate(element)){
+      filteredElement.push(element);
     }
   }
   return filteredElement;
