@@ -1,4 +1,4 @@
-const map = function(array,mapper) {
+const map = function(mapper,array) {
   let mappedElements = [];
   for(element of array) {
     mappedElements.push(mapper(element));
