@@ -6,7 +6,7 @@ const map = function(mapper,array) {
   return mappedElements;
 }
 
-const filter = function(array,predicate) {
+const filter = function(predicate,array) {
   let filteredElements = [];
   for(element of array) {
     if(predicate(element)){

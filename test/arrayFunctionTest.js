@@ -2,6 +2,14 @@ const assert = require("assert");
 const arrayFunctions = require("../src/arrayFunctions.js");
 const {reduce, map, filter} = arrayFunctions;
 
+const truthy = function (number) {
+  return true;
+}
+
+const falsy = function (number) {
+  return false;
+}
+
 const increment = function(number){
   return number + 1;
 }
@@ -21,32 +29,24 @@ const sum = function(number1, number2) {
 describe('map' , function() {
   it('should return empty array when input is empty array', function() {
     assert.deepEqual(map(increment,[]),[]);
-  })
+  });
   it('should preserve the length of array', function() {
     assert.deepEqual(map(decrement,[0]),[-1]);
     assert.deepEqual(map(increment,[1,2]),[2,3]);
-  })
-})
+  });
+});
 
 describe('filter', function() {  
-  describe('checkAge', function() {
-    it('check for null input', function() {
-      assert.deepEqual(filter([],checkAge),[]);
-    })
-    it('check for lesser value', function() {
-      assert.deepEqual(filter([1],checkAge),[]);
-    })
-    it('check with single greater value', function() {
-      assert.deepEqual(filter([20],checkAge),[20]);
-    })
-    it('check with multiple greater values', function() {
-      assert.deepEqual(filter([20,30,40],checkAge),[20,30,40]);
-    })
-    it('check with combination of values', function() {
-      assert.deepEqual(filter([1,2,30],checkAge),[30]);
-    })
-  })
-})
+  it('should return empty array when input is empty array', function() {
+    assert.deepEqual(filter(checkAge,[]),[]);
+  });
+  it('should return same array when function return truthy values for all array elements', function() {
+    assert.deepEqual(filter(truthy,[1,2,3,4,5]),[1,2,3,4,5]);
+  });
+  it('should return empty array when function returns falsy values for all array elements', function(){
+    assert.deepEqual(filter(falsy,[1,2,3,4]),[]);
+  });
+});
 
 describe('reduce', function() {
   describe('sum', function() {
