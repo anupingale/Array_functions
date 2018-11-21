@@ -55,23 +55,17 @@ describe('filter', function() {
 });
 
 describe('reduce', function() {
-  it('should return sum of 2 numbers', function() {
-    assert.deepEqual(reduce([2,3],sum,1),6);
-  })
-  it('should return sum of multiple numbers in array', function() {
-    assert.deepEqual(reduce([1,2,3,4,5,6],sum,1),22);
-  })
-  it('should return sum of 2 numbers with no initial value', function() {
-    assert.deepEqual(reduce([1,2],sum,0),3);
-  })
-  it('should return sum of multiple numbers', function() {
-    assert.deepEqual(reduce([1,2,3,4,5,6],sum,0),21);
-  })
-  it('should return when initial value is undefined', function() {
-    assert.deepEqual(reduce([1,2,3],sum),6);
-  })
-  it('should concat strings', function() {
-    assert.deepEqual(reduce(["a","b","c"],sum,""),"abc")
-  })
-})
+  it('should return value as per mapper function suppose to return while initial value is provided', function() {
+    assert.deepEqual(reduce(sum,[],1),1);
+    assert.deepEqual(reduce(sum,[2],2),4);
+    assert.deepEqual(reduce(sum,[1,2,3],1),7);
+  });
+  it('should return empty array when initial value is not provided', function() {
+    assert.deepEqual(reduce(sum,[1]),1);
+    assert.deepEqual(reduce(sum,[1,2,3]),6);
+  });
+  it('should return undefined when initial value and array elements both are not provided', function() {
+    assert.deepEqual(reduce(sum,[]),undefined);
+  });
+});
 

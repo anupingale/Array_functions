@@ -16,10 +16,10 @@ const filter = function(predicate,array) {
   return filteredElements;
 }
 
-const reduce = function(array,reducer,initialValue) {
-  let result = initialValue;
+const reduce = function(reducer,array,accumulator) {
+  let result = accumulator;
   let index = 0;
-  if(initialValue == undefined) {
+  if(accumulator == undefined) {
     result = array[0];
     index = 1;
   }
