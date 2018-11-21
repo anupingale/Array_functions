@@ -7,16 +7,16 @@ const map = function(array,mapper) {
 }
 
 const filter = function(array,predicate) {
-  let filteredElement = [];
+  let filteredElements = [];
   for(element of array) {
     if(predicate(element)){
-      filteredElement.push(element);
+      filteredElements.push(element);
     }
   }
-  return filteredElement;
+  return filteredElements;
 }
 
-const reduce = function(array,functionName,initialValue) {
+const reduce = function(array,reducer,initialValue) {
   let result = initialValue;
   let startingIndex = 0;
   if(initialValue == undefined) {
@@ -24,7 +24,7 @@ const reduce = function(array,functionName,initialValue) {
     startingIndex = 1;
   }
   for(let index = startingIndex; index < array.length; index++) {
-    result = functionName(result,array[index]);
+    result = reducer(result,array[index]);
   }
   return result;
 }
