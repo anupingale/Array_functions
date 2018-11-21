@@ -18,8 +18,13 @@ const filter = function(array,functionName) {
 }
 
 const reduce = function(array,functionName,initialValue) {
-  let result = initialValue || 0;
-  for(let index = 0; index < array.length; index++) {
+  let result = initialValue;
+  let startingIndex = 0;
+  if(initialValue == undefined) {
+    result = array[0];
+    startingIndex = 1;
+  }
+  for(let index = startingIndex; index < array.length; index++) {
     result = functionName(result,array[index]);
   }
   return result;

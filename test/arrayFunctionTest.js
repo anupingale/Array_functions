@@ -65,6 +65,9 @@ describe('reduce', function() {
     it('should return when initial value is undefined', function() {
       assert.deepEqual(reduce([1,2,3],sum),6);
     })
+    it('should concat strings', function() {
+      assert.deepEqual(reduce(["a","b","c"],sum,""),"abc")
+    })
   })
 })
 
