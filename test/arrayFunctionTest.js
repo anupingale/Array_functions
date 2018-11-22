@@ -15,7 +15,7 @@ const increment = function(number){
 }
 
 const decrement = function(number) {
-  return number-1;
+  return number - 1;
 }
 
 const checkAge = function(age){
@@ -23,10 +23,10 @@ const checkAge = function(age){
 }
 
 const sum = function(number1, number2) {
-  return number1+number2;
+  return number1 + number2;
 }
 
-describe('map' , function() {
+describe('map', function() {
   it('should return empty array when input is empty array', function() {
     assert.deepEqual(map(increment,[]),[]);
   });
