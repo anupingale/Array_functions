@@ -45,18 +45,18 @@ describe('filter', function() {
 });
 
 describe('reduce', function() {
-  it('should return value as per mapper function suppose to return while initial value is provided', function() {
+  it('should work as per reducer when arguments are provided', function() {
     assert.deepEqual(reduce(sum,[],1),1);
     assert.deepEqual(reduce(sum,[2],2),4);
     assert.deepEqual(reduce(sum,[1,2,3],1),7);
   });
 
-  it('should return empty array when initial value is not provided', function() {
+  it('should return empty array when accumulator is not provided', function() {
     assert.deepEqual(reduce(sum,[1]),1);
     assert.deepEqual(reduce(sum,[1,2,3]),6);
   });
 
-  it('should return undefined when initial value and array elements both are not provided', function() {
+  it('should return undefined when arguments are not provided', function() {
     assert.deepEqual(reduce(sum,[]),undefined);
   });
 });
