@@ -2,36 +2,24 @@ const assert = require("assert");
 const arrayFunctions = require("../src/arrayFunctions.js");
 const {reduce, map, filter} = arrayFunctions;
 
-const truthy = function (number) {
-  return true;
-}
+const truthy = (x) => true;
 
-const falsy = function (number) {
-  return false;
-}
+const falsy = (x) => false;
 
-const increment = function(number){
-  return number + 1;
-}
+const increment = (x) => x+1;
 
-const decrement = function(number) {
-  return number - 1;
-}
+const decrement = (x) => x-1;
 
-const checkAge = function(age){
-  return age > 10;
-}
+const checkAge = (age) => age > 10;
 
-const sum = function(number1, number2) {
-  return number1 + number2;
-}
+const sum = (x,y) => x+y;
 
 describe('map', function() {
   it('should return empty array when input is empty array', function() {
     assert.deepEqual(map(increment,[]),[]);
   });
 
-  it('should preserve the length of array', function() {
+  it('should return array of same length', function() {
     const numbers = [1,2];
     assert.equal(map(increment, numbers).length, numbers.length);
   });
@@ -43,15 +31,15 @@ describe('map', function() {
 });
 
 describe('filter', function() {  
-  it('should return empty array when input is empty array', function() {
+  it('should return empty array when input is an empty array', function() {
     assert.deepEqual(filter(checkAge,[]),[]);
   });
 
-  it('should return same array when function return truthy values for all array elements', function() {
+  it('should return same array when prdicate is always truthy', function() {
     assert.deepEqual(filter(truthy,[1,2,3,4,5]),[1,2,3,4,5]);
   });
 
-  it('should return empty array when function returns falsy values for all array elements', function(){
+  it('should filter all element when predicate is always falsy', function(){
     assert.deepEqual(filter(falsy,[1,2,3,4]),[]);
   });
 });
